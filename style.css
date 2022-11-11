@@ -1,0 +1,239 @@
+/*All sections code*/
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/*Navigation bar code*/
+.nav-area{
+    float:right;
+    list-style:none;
+    margin-top:34px;
+    padding-right: 50px;
+}
+
+.nav-area li{
+    display: inline;
+}
+
+.nav-area li a{
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    font-size: 15px;
+    border-radius: 15px;
+    width: 10px;
+}
+
+.nav-area li a:hover ,
+.nav-area li a.active
+{
+    background: #fff;
+    color: #333;
+    transition: 0.9s;
+}
+
+.hamburger{
+    position: absolute;
+    top:2.3rem;
+    left: 2.7rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 33px;
+    height: 23px;
+}
+
+.hamburger .bar{
+    height: 3px;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+
+/*Allow chart overflow in mobile*/
+@media screen and (max-width: 415px){
+    .container {
+        overflow-x: auto;
+    }
+}
+
+
+/*Mobile Navigation bar*/
+@media screen and (max-width: 750px){
+
+    .nav-area{
+        position: absolute;
+        background: rgba(0,0,0,0.3);
+        right:0px;
+        margin-top: 0px;
+        width: 90px;
+        height: 1300px;
+        padding-top: 40px;
+        padding-left: 30px;
+        text-align: right;
+        display: none;
+    }
+
+    .nav-area li a{
+        display: block; 
+    }
+
+    .nav-area.active {
+        display: block;
+    }
+
+    .nav-area li a:hover ,
+    .nav-area li a.active
+    {
+        background: none;
+        color: #fff;
+        transition: 0s;
+    }
+
+    .hamburger{
+        display: flex;
+    }
+}
+
+
+/*Code for the parallax effect and background image*/
+body {
+    margin: 0;
+    padding: 0;
+    perspective: 1px;
+    transform-style: preserve-3d;
+    height: 100%;
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+header {
+    box-sizing: border-box;
+    min-height: 100vh;
+    position: relative;
+    transform-style: inherit;
+    width: 100vw;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    font-size: calc(45px + 0.390625vw);
+    color: #fff;
+}
+
+header h2 {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 60%);
+    font-size: calc(10px + 0.390625vw);
+    color: #fff;
+}
+
+header,
+header:before {
+    background: 50% 50% / cover;
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(backgroundinLondon.jpg);
+    background-size: cover;
+    transform-origin: center center 0;
+    transform: translateZ(-1px) scale(2);
+    z-index: -1;
+    min-height: 50vh;
+}
+
+.container {
+    z-index: 2;
+    position:absolute;
+    top: 100vh;
+    background: #fff;
+    width: 100%;
+}
+
+.container p{
+    color: rgb(64, 64, 64);  
+    margin-left: 70px;
+    margin-right: 70px;
+}
+
+.container h2{
+    color: rgba(58, 59, 60)
+}
+
+.container h4{
+    color: rgb(250,250,250)
+}
+
+
+/*Appearance of the charts and weekly boxes*/
+.myWeek1{
+    margin: auto;
+    max-width: 1300px;
+    background-color: rgb(248,248,248);
+    text-align: center;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.myWeek2to11{
+    margin: auto;
+    max-width: 1300px;
+    text-align: center;
+    border-radius: 5px;
+}
+.myWeek2{
+    background-color: rgb(248,248,248);
+}
+
+.myWeek3{
+    background-color: rgb(248,248,248);
+}
+
+.myWeek4{
+    background-color: rgb(248,248,248);
+}
+
+.myWeek5{
+    background-color: rgb(248,248,248);
+}
+
+.myWeek7{
+    background-color: rgb(248,248,248);
+}
+
+.chart{
+    background-color: #fff;
+    padding-left: 35px;
+    padding-top: 6px;
+    border-radius: 5px;
+    margin: 1%;
+}
+
+.chart:hover{
+    transition: 0.3s;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+

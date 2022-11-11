@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- Title for the page -->
+        <title>Document</title>
+        <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+        <!-- Link to my style sheet -->
+        <link rel="stylesheet" href="style.css">
+    
+        <!--The next three lines allow the Vega embed-->
+        <script src="https://cdn.jsdelivr.net/npm/vega@5.17.0"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.17.0"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.12.2"></script>
+    </head>
+    
+    <body>
+        <header class="header">
+            <a href="#" class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </a>
+            <nav class="navbar">
+                <ul class="nav-area">
+                    <li><a href = "index.html">Home</a></li>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <li><a href = "portfolio.html">Portfolio</a></li>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <li><a href = "project.html"class="active">Project</a></li>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <li><a href = "https://github.com/jameseconnolly/jameseconnolly.github.io">Github</a></li>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <li><a href = "https://rapidcharts.io/datascience">Course</a></li>
+                </ul>
+            </nav>
+
+            <h1>Project</h1>
+            <h2>James Connolly</h2>
+        </header>
+
+        
+        <div class="container">
+            
+            <div class="Week1">
+                <div class="text">
+                    <h2>Week 1</h2>
+                    <p>Embed two automated and interactive charts onto our website from the rapidcharts.io repository.</p>
+                </div>
+                <div class="chart" id="Chart1"></div>
+                <div class="chart" id="Chart2"> </div>
+                <h4>'</h4>
+
+            </div> 
+        
+            <div class="myWeek2">
+                <div class="text">
+                    <h2>Week 2</h2>
+                    <p>Use IMF data on total credit oustanding to replicate a chart published wihtin the Financial Times, which is then corrected to adjust for Global GDP to more accurately account for the affordability of lending. In 1984, the IMF's credit oustanding relative to GDP peaked, making it a riskier time to invest compared to 2022.</p>
+                </div>
+                <div class="chart" id="Chart3"></div>
+        
+                <div class="chart" id="Chart4"></div>
+                <h4>'</h4>
+
+            </div>
+
+            <div class="myWeek3">
+                <div class="text">
+                    <h2>Week 3</h2>
+                    <p>Use Python to extract data from a csv file into a dictionary format which is embedded as a chart using Vega. I used this methodology to create charts for construction productivity and total producivity in the UK from 1997.</p>
+                </div>
+                <div class="chart" id="Chart5"></div>
+            
+                <div class="chart" id="Chart6"></div> 
+                <h4>'</h4>
+               
+            </div> 
+
+            <div class="myWeek4">
+                <div class="text">
+                    <h2>Week 4</h2>
+                    <p></p>
+                </div>
+                <div class="chart" id="Chart7"></div>
+            
+                <div class="chart" id="Chart8"></div> 
+                <h4>'</h4>
+               
+            </div> 
+        </div>
+
+    
+        <script>
+            
+            const toggleButton = document.getElementsByClassName('hamburger')[0]
+            const navBarLinks = document.getElementsByClassName('nav-area')[0]
+
+            toggleButton.addEventListener('click', () => {
+                navBarLinks.classList.toggle('active')
+            })
+
+            // GET ALL LINKS IN NAVBAR
+            const links = document.querySelectorAll('.nav-area a')
+
+            links.forEach(l => {
+                // BIND CLICK EVENT ON ALL LINKS
+                l.addEventListener('click', () => {
+                    // ON CLICK, REMOVE active CLASS FROM navBarLinks
+                    navBarLinks.classList.remove('active')
+                })
+            })
+
+        </script>
+
+
+
+    </body>
+
+    <script>
+        //Define charts:
+        var myChart1 = "chart1_ukemissions.json";
+        var myChart2 = "chart2_energybysource.json";
+        var myChart3 = "chart3_IMFLendingOutstanding.json";
+        var myChart4 = "chart4_IMFLendingOutstandingAdjusted.json";
+        var myChart5 = "chart5_ukConstructionProductivity.json";
+        var myChart6 = "chart6_ukTotalProductivity.json";
+        var myChart7 = "chart6_ukTotalProductivity.json";
+        var myChart8 = "chart6_ukTotalProductivity.json";
+
+    
+        // Embed charts:
+        vegaEmbed('#Chart1', myChart1);
+        vegaEmbed('#Chart2', myChart2);
+        vegaEmbed('#Chart3', myChart3);
+        vegaEmbed('#Chart4', myChart4);
+        vegaEmbed('#Chart5', myChart5);
+        vegaEmbed('#Chart6', myChart6);
+        vegaEmbed('#Chart6', myChart7);
+        vegaEmbed('#Chart6', myChart8);
+
+    </script>
+
+
+
+
+
+</html>

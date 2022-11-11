@@ -1,0 +1,36 @@
+{"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "title": {
+      "text": "IMF Lending Outstanding",
+      "subtitle":"Credit outstanding to all members. Source: IMF",
+      "subtitleFontStyle":"italic",
+      "subtitleFontSize":10,
+      "anchor": "start",
+      "color": "rgba(58, 59, 60)"},
+  
+  "data":{"url": "https://raw.githubusercontent.com/jameseconnolly/jameseconnolly.github.io/main/TotalIMFCreditOutstandingClean.csv"},
+  
+  "height": 300,
+  "width": 300,
+
+  "mark": {
+    "type": "bar",
+    "color": "rgb(115, 147, 179)"},
+
+"encoding": {
+     "x": {
+       "field": "Year",
+       "type": "temporal",
+       "axis": {
+         "title": null,
+         "grid": false,
+         "ticks": false,
+         "labelAngle": 45}},
+
+      "y": {
+        "field": "Billions",
+        "type": "quantitative",
+        "title": "",
+        "axis": {"grid": false}}
+}
+}
