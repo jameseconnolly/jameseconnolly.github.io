@@ -14,13 +14,8 @@
   
     "width":205,
     "height":250,
-  
+
     "data": {
-        "url": "https://api.allorigins.win/raw?url=https://api.ons.gov.uk/timeseries/L522/dataset/MM23/data",
-        "format": {"type":"json", "property": "months"}},
-  
-  
-    "xxSTATICdata": {
         "name":"myData",
         "url": "https://raw.githubusercontent.com/jameseconnolly/jameseconnolly.github.io/main/data_ONS-L522.json",
         "format": {
@@ -79,7 +74,7 @@
           "type": "line",    
           "color":"rgb(115, 147, 179)",
           "width": 10,
-          "strokeWidth":2,
+          "strokeWidth":1.4,
           "opacity":1},
   
         "encoding": {
