@@ -1,13 +1,13 @@
-﻿Region/Country,Second Tier Authority,Local Authority,Local Authority Code,Emissions per km2
-North East (England),North East Total,North East Total,,1.50
-North West (England),North West Total,North West Total,,2.30
+Region/Country,Second Tier Authority,Local Authority,Local Authority Code,Emissions per km2
+North East,North East Total,North East Total,,1.50
+North West,North West Total,North West Total,,2.30
 Yorkshire and The Humber,Yorkshire and the Humber Total,Yorkshire and the Humber Total,,2.00
-East Midlands (England),East Midlands Total,East Midlands Total,,1.60
-West Midlands (England),West Midlands Total,West Midlands Total,,2.00
-East,East of England Total,East of England Total,,1.60
+East Midlands,East Midlands Total,East Midlands Total,,1.60
+West Midlands,West Midlands Total,West Midlands Total,,2.00
+Eastern England,East of England Total,East of England Total,,1.60
 London,London Total,London Total,,16.30
-South East (England),South East Total,South East Total,,1.80
-South West (England),South West Total,South West Total,,0.90
+South East,South East Total,South East Total,,1.80
+South West,South West Total,South West Total,,0.90
 Wales,Wales Total,Wales Total,,1.00
 Scotland,Scotland Total,Scotland Total,,0.30
 Northern Ireland,Northern Ireland Total,Northern Ireland Total,,1.00
