@@ -1,0 +1,48 @@
+{"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "description": "International Territorial Level Map, to change regional hierarchy: replace x in 'ITLx_2021_20m' in URL, and 'ITLx21NM' in tooltip, with 1, 2 or 3.",
+
+  "title": {
+      "text": "UK Regional CO2 Emissions In 2020",
+      "subtitle":"Emissions per km2. Source: ONS",
+      "subtitleFontStyle":"italic",
+      "subtitleFontSize":10,
+      "anchor": "start",
+      "color": "rgba(58, 59, 60)"},
+
+  "config": {
+      "background":"white",
+      "view": {"stroke": "transparent"}},
+  
+  "width": 220,
+  "height": 350,
+  
+  "data": {
+    "url": "https://raw.githubusercontent.com/jameseconnolly/jameseconnolly.github.io/main/ukRegionalGeojson.geo.json",
+        "format": {"property": "features"}},
+
+  "projection": {"type": "mercator"},
+
+   "transform": [
+    {
+      "lookup": "properties.ITL121NM",
+      "from": {
+        "key": "Region/Country",
+        "fields": ["Emissions per km2"],
+        "data": {
+          "url": "https://raw.githubusercontent.com/jameseconnolly/jameseconnolly.github.io/main/ukRegionalCO2.csv"
+        }
+      }
+    }
+  ],
+  
+  "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 0.5},
+
+  "encoding": {
+    "color": {"field": "Emissions per km2", "type": "quantitative"},
+    "tooltip": [
+      {"field": "properties.ITL121NM", "type": "nominal", "title": "Region/Country"},
+      {"field": "Emissions per km2"}
+    ]
+  }
+}
