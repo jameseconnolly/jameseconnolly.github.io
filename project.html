@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- Title for the page -->
+        <title>Document</title>
+        <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+        <!-- Link to my style sheet -->
+        <link rel="stylesheet" href="style.css">
+    
+        <!--The next three lines allow the Vega embed-->
+        <script src="https://cdn.jsdelivr.net/npm/vega@5.17.0"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.17.0"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.12.2"></script>    
+    </head>
+    
+    <body>
+        <header class="header">
+            <a href="#" class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </a>
+            <nav class="navbar">
+                <ul class="nav-area">
+                    <li><a href = "index.html">Home</a></li>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <li><a href = "portfolio.html" >Portfolio</a></li>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <li><a href = "project.html"class="active">Project</a></li>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <li><a href = "https://github.com/jameseconnolly/jameseconnolly.github.io">Github</a></li>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <li><a href = "https://rapidcharts.io/datascience">Course</a></li>
+                </ul>
+            </nav>
+            <h3>Is net-zero the answer to climate change</h3>
+            <h2>James Connolly</h2>
+        </header>
+        
+        <div class="container">
+            <div class="sectionstyle">
+                <h2>What is net-zero?</h2>
+            </div>
+            <div class="section1">
+                    <h4>'</h4>
+                <div class="text">
+                    <p></p>
+                </div>
+                <iframe style="border:0" class="chart" src="chart1_ukemissions.html" width="410" height="430"></iframe>
+                <iframe style="border:0" class="chart" src="chart2_energybysource.html" width="410" height="430"></iframe>
+                <h4>'</h4>
+            </div>
+
+            <div class="sectionstyle">
+                <h2>Issues with net-zero</h2>
+            </div>
+            <div class="section2">
+                    <h4>'</h4>
+                <div class="text">
+                    <p></p>
+                </div>
+                <iframe style="border:0" class="chart" src="chart1_ukemissions.html" width="410" height="430"></iframe>
+                <iframe style="border:0" class="chart" src="chart2_energybysource.html" width="410" height="430"></iframe>
+                <h4>'</h4>
+            </div>
+
+            <div class="sectionstyle">
+                <h2>Whats the alternative - conclusions</h2>
+            </div>
+            <div class="section3">
+                    <h4>'</h4>
+                <div class="text">
+                    <p></p>
+                </div>
+                <iframe style="border:0" class="chart" src="chart1_ukemissions.html" width="410" height="430"></iframe>
+                <iframe style="border:0" class="chart" src="chart2_energybysource.html" width="410" height="430"></iframe>
+                <h4>'</h4>
+            </div>
+
+            
+        </div>
+    
+        <script>
+            const toggleButton = document.getElementsByClassName('hamburger')[0]
+            const navBarLinks = document.getElementsByClassName('nav-area')[0]
+
+            toggleButton.addEventListener('click', () => {
+                navBarLinks.classList.toggle('active')
+            })
+
+            // GET ALL LINKS IN NAVBAR
+            const links = document.querySelectorAll('.nav-area a')
+
+            links.forEach(l => {
+                // BIND CLICK EVENT ON ALL LINKS
+                l.addEventListener('click', () => {
+                    // ON CLICK, REMOVE active CLASS FROM navBarLinks
+                    navBarLinks.classList.remove('active')
+                })
+            })
+        </script>
+    </body>
+
+    <script>
+        //Define charts:
+        var myChart1 = "";
+
+        // Embed charts:
+        vegaEmbed('#Chart1', myChart1);
+    </script>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- Title for the page -->
+        <title>Document</title>
+        <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+        <!-- Link to my style sheet -->
+        <link rel="stylesheet" href="style.css">
+    
+        <!--The next three lines allow the Vega embed-->
+        <script src="https://cdn.jsdelivr.net/npm/vega@5.17.0"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.17.0"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.12.2"></script>    
+    </head>
+    
+    <body>
+        <header class="header">
+            <a href="#" class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </a>
+            <nav class="navbar">
+                <ul class="nav-area">
+                    <li><a href = "index.html">Home</a></li>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <li><a href = "portfolio.html" class="active">Portfolio</a></li>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <li><a href = "project.html">Project</a></li>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <li><a href = "https://github.com/jameseconnolly/jameseconnolly.github.io">Github</a></li>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <li><a href = "https://rapidcharts.io/datascience">Course</a></li>
+                </ul>
+            </nav>
+            <h1>Portfolio</h1>
+            <h2>James Connolly</h2>
+        </header>
+        
+        <div class="container">
+            <div class="sectionstyle">
+                <h2>Week 1</h2>
+            </div>
+            <div class="myWeek1">
+                <h4>'</h4>                 
+                <div class="text">
+                    <p>Embed two automated and interactive charts onto our website from the <a href ="https://rapidcharts.io"> rapidcharts.io</a> repository.</p>
+                </div>
+                <iframe style="border:0" class="chart" src="chart1_ukemissions.html" width="410" height="430"></iframe>
+                <iframe style="border:0" class="chart" src="chart2_energybysource.html" width="410" height="430"></iframe>
+                <h4>'</h4>
+            </div>
+            
+            <div class="sectionstyle">
+                <h2>Week 2</h2>
+                <div class="myWeek2">
+                    <h4>'</h4>                 
+                    <div class="text">
+                        <p>Use IMF data on total credit oustanding to replicate a chart published wihtin the Financial Times, which is then corrected to adjust for Global GDP to more accurately account for the affordability of lending. In 1984, the IMF's credit oustanding relative to GDP peaked, making it a riskier time to invest compared to 2022.</p>
+                    </div>
+                    <div class="chart" id="Chart3"></div>
+                    <div class="chart" id="Chart4"></div>
+                    <h4>'</h4>
+                </div>
+
+                <h2>Week 3</h2>
+                <div class="myWeek3">
+                    <h4>'</h4>
+                    <div class="text">
+                        <p>Use Python to extract data from a csv file into a dictionary format which is embedded as a chart using Vega. I used this methodology to create 2 charts measuring UK productivity. The second chart uses a bar visual encoding, rather than a line in the first. Given the large amount of data-points, a line format works best.</p>
+                    </div>
+                    <div class="chart" id="Chart5"></div>
+                    <div class="chart" id="Chart6"></div> 
+                    <h4>'</h4>
+                </div> 
+                
+                <h2>Week 4</h2>
+                <div class="myWeek4">
+                    <h4>'</h4>
+                    <div class="text">
+                        <p>Scrape a website to gather data which is cleaned and normalised into a long form format using python, <a href ="https://colab.research.google.com/drive/1ofMjeYNIySHNBpilKaDD61b1KXeUPY39?usp=sharing"> colab link</a>. I used the ONS to gather data on average petrol fuel prices as it's updated on a monthy basis over a 30-year time-period.</p>
+                    </div>
+                    <div class="chart" id="Chart7"></div>
+                    <h4>'</h4>
+                
+                </div> 
+
+                <h2>Week 5</h2>
+                <div class="myWeek5">
+                    <h4>'</h4>
+                    <div class="text">
+                        <p>Use the ONS API to batch download nine different series as JSON files and use these to supply the data to nine charts. I conducted my data analysis using <a href ="https://colab.research.google.com/drive/1DIGEm4m1X7yYEELcfQ4od4aeVAyUm0NC?usp=share_link">google colab</a> to collect inflation measures for all goods and those relevant to the construction industry in the UK.</a></p>
+                    </div>
+                    <div class="chart" id="Chart8"></div>
+                    <div class="chart" id="Chart9"></div>
+                    <div class="chart" id="Chart10"></div>
+                    <div class="chart" id="Chart11"></div>
+                    <div class="chart" id="Chart12"></div>
+                    <div class="chart" id="Chart13"></div>
+                    <div class="chart" id="Chart14"></div>
+                    <div class="chart" id="Chart15"></div>
+                    <div class="chart" id="Chart16"></div>
+                    <h4>'</h4>
+                
+                </div> 
+
+                <div class="myWeek6">
+                    <div class="text">
+                        <h2>Week 6 - Reading Week</h2>
+                    </div>
+                </div> 
+
+                <h2>Week 7</h2>
+                <div class="myWeek7">
+                    <h4>'</h4>
+                    <div class="text">
+                        <p>Produce two maps and embed them onto our website. My first map illustrates the ITL1 regions within the UK. My second map shows the emissions per km2 in each region, to show where ivestment needs to be prioritised for net-zero targets.</p>
+                    </div>
+                    <iframe style="border:0" class="chart" src="chart17_ukRegionalMap.geo.html" width="300" height="450"></iframe>
+                    <iframe style="border:0" class="chart" src="chart18_ukRegionalEmissionsMap.geo.html" width="400" height="450"></iframe>
+                    <h4>'</h4>
+                </div> 
+
+                <h2>Week 8</h2>
+                <div class="myWeek8">
+                    <h4>'</h4>
+                    <div class="text">
+                        <p>Whilst attending the Prices and Wages talk at the Festival of Economics, the following argument was made regarding Andrew Bailey's decision to urge wage restraints. We risk a wage-price spiral if the BoE fully adjusted wages relative to inflation as wage increases can create a cost-push inflation rise.</p>
+                        <p>Wages and inflation have accelerated to historic levels, indicating a wage-price spiral risk. Low unemployment and high vacancies suggests a tight labour market, increasing wages.</p>
+                    </div>
+                    <div class="chart" id="Chart19"></div>
+                    <div class="chart" id="Chart20"></div>
+                    <h4>'</h4>
+                </div> 
+
+                <h2>Week 9</h2>
+                <div class="myWeek9">
+                    <h4>'</h4>
+                    <div class="text">
+                        <p></p>
+                    </div>
+                    <div class="chart" id="Chart21"></div>
+                    <div class="chart" id="Chart22"></div>
+                    <h4>'</h4>
+                </div> 
+
+                <h2>Week 10</h2>
+                <div class="myWeek10">
+                    <h4>'</h4>
+                    <div class="text">
+
+                        <p></p>
+                    </div>
+                    <h4>'</h4>
+                </div> 
+
+                <h2>Week 11</h2>
+                <div class="myWeek11">
+                    <h4>'</h4>
+                    <div class="text">
+                        <p></p>
+                    </div>
+                    <h4>'</h4>
+                </div>           
+            </div>
+        </div>
+    
+        <script>
+            const toggleButton = document.getElementsByClassName('hamburger')[0]
+            const navBarLinks = document.getElementsByClassName('nav-area')[0]
+
+            toggleButton.addEventListener('click', () => {
+                navBarLinks.classList.toggle('active')
+            })
+
+            // GET ALL LINKS IN NAVBAR
+            const links = document.querySelectorAll('.nav-area a')
+
+            links.forEach(l => {
+                // BIND CLICK EVENT ON ALL LINKS
+                l.addEventListener('click', () => {
+                    // ON CLICK, REMOVE active CLASS FROM navBarLinks
+                    navBarLinks.classList.remove('active')
+                })
+            })
+        </script>
+    </body>
+
+    <script>
+        //Define charts:
+        var myChart1 = "chart1_ukemissions.json";
+        var myChart2 = "chart2_energybysource.json";
+        var myChart3 = "chart3_IMFLendingOutstanding.json";
+        var myChart4 = "chart4_IMFLendingOutstandingAdjusted.json";
+        var myChart5 = "chart5_ukProductivityLine.json";
+        var myChart6 = "chart6_ukProductivityBar.json";
+        var myChart7 = "chart7_ukPetrolPrices.json";
+        var myChart8 = "ChartCHAW.json";
+        var myChart9 = "ChartD7BT.json";
+        var myChart10 = "ChartL522.json";
+        var myChart11 = "ChartCZBH.json";
+        var myChart12 = "ChartD7G7.json";
+        var myChart13 = "ChartL55O.json";
+        var myChart14 = "ChartCZEB.json";
+        var myChart15 = "ChartCHBF.json";
+        var myChart16 = "ChartCHOL.json";
+        var myChart17 = "chart17_ukRegionalMap.geo.json";
+        var myChart18 = "chart18_ukRegionalEmissionsMap.geo.json";
+        var myChart19 = "chart19_ukCPIandAWE.json";
+        var myChart20 = "chart20_VACandU.json";
+        var myChart21 = "test.json";
+        var myChart22 = "";
+    
+        // Embed charts:
+        vegaEmbed('#Chart1', myChart1);
+        vegaEmbed('#Chart2', myChart2);
+        vegaEmbed('#Chart3', myChart3);
+        vegaEmbed('#Chart4', myChart4);
+        vegaEmbed('#Chart5', myChart5);
+        vegaEmbed('#Chart6', myChart6);
+        vegaEmbed('#Chart7', myChart7);
+        vegaEmbed('#Chart8', myChart8);
+        vegaEmbed('#Chart9', myChart9);
+        vegaEmbed('#Chart10', myChart10);
+        vegaEmbed('#Chart11', myChart11);
+        vegaEmbed('#Chart12', myChart12);
+        vegaEmbed('#Chart13', myChart13);
+        vegaEmbed('#Chart14', myChart14);
+        vegaEmbed('#Chart15', myChart15);
+        vegaEmbed('#Chart16', myChart16);
+        vegaEmbed('#Chart17', myChart17);
+        vegaEmbed('#Chart18', myChart18);
+        vegaEmbed('#Chart19', myChart19);
+        vegaEmbed('#Chart20', myChart20);
+        vegaEmbed('#Chart21', myChart21);
+        vegaEmbed('#Chart22', myChart22);
+    </script>
+</html>
