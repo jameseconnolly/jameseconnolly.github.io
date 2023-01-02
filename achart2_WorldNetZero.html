@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.2.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
+</head>
+<body>
+  <div id="vis"/>
+  <script>
+    const spec = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Equal earth map depicting Net Zero Targers. Some countries have no targets.",
+  "title": {
+    "text": "Net-zero Emissions Targets and Achievements",
+    "subtitle": "Net-zero Targets, including those already met. Source: Net Zero Tracker",
+    "subtitleFontStyle": "italic",
+    "subtitleFontSize": 10,
+    "anchor": "start",
+    "color": "rgba(58, 59, 60)"
+  },
+  "width": 450,
+  "height": 300,
+  "background": null,
+  "config": {"style": {"cell": {"stroke": "transparent"}}},
+  "data": {
+    "url": "https://raw.githubusercontent.com/jameseconnolly/jameseconnolly.github.io/main/Net_Zero_Countries.csv"
+  },
+  "transform": [
+    {
+      "lookup": "Country Name",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/jameseconnolly/jameseconnolly.github.io/main/worldtopojson.json",
+          "format": {"type": "topojson", "feature": "countries1"}
+        },
+        "key": "properties.name",
+        "fields": ["properties", "type", "geometry"]
+      }
+    }
+  ],
+  "projection": {"type": "equalEarth"},
+  "mark": "geoshape",
+  "encoding": {
+    "color": {
+      "condition": {
+        "test": "datum['Net-zero Target'] == 0",
+        "value": "rgba(180,180,180)"
+      },
+      "field": "Net-zero Target",
+      "type": "quantitative"
+    },
+    "tooltip": [
+      {"field": "properties.name", "type": "nominal", "title": "Country Name"},
+      {"field": "Net-zero Target", "type": "quantitative"},
+      {"field": "Target Status", "type": "nominal"},
+      {"field": "Detailed Plan", "type": "nominal"},
+      {"field": "Reporting Mechanism", "type": "nominal"},
+      {"field": "CO₂ Removal", "type": "nominal"},
+      {"field": "GHG", "type": "quantitative"}
+    ]
+  }
+};
+    vegaEmbed("#vis", spec, {mode: "vega-lite"}).then(console.log).catch(console.warn);
+  </script>
+</body>
+</html>

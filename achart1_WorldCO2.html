@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.2.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
+</head>
+<body>
+  <div id="vis"/>
+  <script>
+    const spec = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Equal earth map depicting CO2 emissions per capita. Some countries did not produce any estimates.",
+  "title": {
+    "text": "CO₂ Emissions Per Capita Global Map",
+    "subtitle": "CO₂ emissions (metric tonne per capita). Source: Our World in Data",
+    "subtitleFontStyle": "italic",
+    "subtitleFontSize": 10,
+    "anchor": "start",
+    "color": "rgba(58, 59, 60)"
+  },
+  "width": 450,
+  "height": 300,
+  "background": null,
+  "config": {"style": {"cell": {"stroke": "transparent"}}},
+  "data": {
+    "url": "https://raw.githubusercontent.com/jameseconnolly/jameseconnolly.github.io/main/WorldCO2-3.csv"
+  },
+  "transform": [
+    {
+      "lookup": "Country Name",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/jameseconnolly/jameseconnolly.github.io/main/worldtopojson.json",
+          "format": {"type": "topojson", "feature": "countries1"}
+        },
+        "key": "properties.name",
+        "fields": ["properties", "type", "geometry"]
+      }
+    },
+    {"filter": "datum.Year==year"}
+  ],
+  "params": [
+    {
+      "name": "year",
+      "value": 2021,
+      "bind": {
+        "input": "range",
+        "min": 1960,
+        "max": 2021,
+        "step": 1,
+        "name": "Year selection:"
+      }
+    }
+  ],
+  "projection": {"type": "equalEarth"},
+  "mark": "geoshape",
+  "encoding": {
+    "color": {
+      "field": "CO₂ emissions per capita",
+      "type": "quantitative",
+      "scale": {"domain": [0, 5, 10, 15, 20]}
+    },
+    "tooltip": [
+      {"field": "properties.name", "type": "nominal", "title": "Country Name"},
+      {"field": "CO₂ emissions per capita", "type": "quantitative"}
+    ]
+  }
+};
+    vegaEmbed("#vis", spec, {mode: "vega-lite"}).then(console.log).catch(console.warn);
+  </script>
+</body>
+</html>
