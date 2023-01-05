@@ -1,0 +1,127 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+ "description": "Equal earth map depicting CO2 emissions per capita. Some countries did not produce any estimates.",
+  "title": {
+    "text": "Greenhouse Gas Emissions Against CCS Readiness",
+    "subtitle": "CO₂ emissions (metric tonne per capita). Source: Our World in Data",
+    "subtitleFontStyle": "italic",
+    "subtitleFontSize": 10,
+    "anchor": "start",
+    "color": "rgba(58, 59, 60)"
+  },
+  "height": 500,
+  "width": 545,
+  "background": null,
+  "data": {
+    "url": "https://raw.githubusercontent.com/jameseconnolly/jameseconnolly.github.io/main/Carbon_Capture_Requirement.csv",
+    "format": {"type": "csv"}
+  },
+  "layer": [
+    {
+      "selection": {
+        "picked": {
+          "empty": "none",
+          "bind": {
+            "Net-zero Target": {
+              "input": "select",
+              "options": [
+                "No Target Selected",
+                0,
+                2000,
+                2030,
+                2035,
+                2040,
+                2045,
+                2050,
+                2053,
+                2060,
+                2065,
+                2070
+              ],
+              "name": "Net-zero Target:"
+            }
+          },
+          "type": "single",
+          "fields": ["Net-zero Target"]
+        },
+        "grid": {
+          "type": "interval",
+          "bind": "scales",
+          "on": "[mousedown, window:mouseup] > window:mousemove!",
+          "translate": "[mousedown, window:mouseup] > window:mousemove!",
+          "zoom": "wheel!",
+          "resolve": "global"
+        }
+      },
+      "mark": {"type": "point", "filled": true},
+      "encoding": {
+        "color": {
+          "value": "grey",
+          "condition": {
+            "field": "Cluster",
+            "selection": "picked",
+            "type": "nominal",
+            "legend": null
+          }
+        },
+        "size": {
+          "value": 60,
+          "condition": {"value": 120, "selection": "picked"}
+        },
+        "opacity": {
+          "value": 0.4,
+          "condition": {"value": 1, "selection": "picked"}
+        },
+        "x": {
+          "field": "Carbon Capture Requirement",
+          "scale": {"zero": false},
+          "type": "quantitative",
+          "title": null,
+          "axis": {
+            "grid": false,
+            "title": "Carbon Capture and Storage Readiness",
+          }
+        },
+        "y": {
+          "field": "log_GHG",
+          "scale": {"zero": false},
+          "type": "quantitative",
+          "axis": {
+            "grid": false,
+            "title": "Log Greenhouse Gas Emissions (MT CO2e)"
+          }
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {"y": "17", "x": "0"},
+          {"y": "23", "x": "90"}
+        ]
+      },
+      "mark": {"type": "line", "strokeDash": [9, 1], "color": "#ff0101"},
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative",
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative",
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "x": 540,
+        "align": "right",
+        "y": 20,
+        "size": 25
+      },
+      "transform": [{"calculate": "0.1", "as": "R2"}],
+      "encoding": {"text": {"type": "nominal", "field": "R2"}}
+    }
+  ]
+}
