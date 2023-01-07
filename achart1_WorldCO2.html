@@ -4,27 +4,32 @@
   <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.2.0"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
 </head>
 <body>
   <div id="vis"/>
   <script>
     const spec = {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Equal earth map depicting CO2 emissions per capita. Some countries did not produce any estimates.",
+  "description": "Equal earth map depicting CO2 emissions of countries. Some countries did not produce any estimates.",
   "title": {
-    "text": "CO₂ Emissions Per Capita Global Map",
-    "subtitle": "CO₂ emissions (metric tonne per capita). Source: Our World in Data",
+    "text": "CO₂ Emissions Million Metric Tonnes Global Map",
+    "subtitle": "Million metric tonnes of CO₂ emissions. Source: EIA",
     "subtitleFontStyle": "italic",
     "subtitleFontSize": 10,
     "anchor": "start",
     "color": "rgba(58, 59, 60)"
   },
-  "width": 450,
+  "width": 475,
   "height": 300,
   "background": null,
   "config": {"style": {"cell": {"stroke": "transparent"}}},
   "data": {
-    "url": "https://raw.githubusercontent.com/jameseconnolly/jameseconnolly.github.io/main/WorldCO2-3.csv"
+    "url": "https://raw.githubusercontent.com/jameseconnolly/jameseconnolly.github.io/main/CO2Map.csv"
   },
   "transform": [
     {
@@ -46,10 +51,10 @@
       "value": 2021,
       "bind": {
         "input": "range",
-        "min": 1960,
+        "min": 1992,
         "max": 2021,
         "step": 1,
-        "name": "Year selection:"
+        "name": "Year selection:     "
       }
     }
   ],
@@ -57,13 +62,13 @@
   "mark": "geoshape",
   "encoding": {
     "color": {
-      "field": "CO₂ emissions per capita",
+      "field": "CO₂ million mTonne",
       "type": "quantitative",
-      "scale": {"domain": [0, 5, 10, 15, 20]}
+      "scale": {"domainMid": 600, "domain": [0, 12000]}
     },
     "tooltip": [
       {"field": "properties.name", "type": "nominal", "title": "Country Name"},
-      {"field": "CO₂ emissions per capita", "type": "quantitative"}
+      {"field": "CO₂ million mTonne", "type": "quantitative"}
     ]
   }
 };

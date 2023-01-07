@@ -10,7 +10,7 @@
   <script>
     const spec = {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.17.json",
-  "description": ".",
+  "description": "2100 Global GHG Emissions per Year Projections for different net-zero and climate targets",
   "title": {
     "text": "2100 Global GHG Emissions per Year Projections",
     "subtitle": "GtCOze / year in various Net-zero scenarios. Source: Climate Action Tracker.",
@@ -35,11 +35,11 @@
           "scale": {
             "range": [
               "rgb(150,150,150)",
-              "#003f5c",
-              "#58508d",
-              "#bc5090",
-              "#ffa600",
-              "#ff6361"
+              "#D1193E",
+              "#F86E51",
+              "#FBA465",
+              "#F2C85B",
+              "#A6D3A0"
             ],
             "domain": [
               "Historical",
@@ -76,10 +76,6 @@
       ],
       "mark": "rule",
       "encoding": {
-        "opacity": {
-          "condition": {"value": 0.3, "param": "hover", "empty": false},
-          "value": 0
-        },
         "tooltip": [
           {"field": "Historical", "type": "quantitative", "format": ".3"},
           {"field": "Current Policies", "type": "quantitative", "format": ".3"},
@@ -89,13 +85,12 @@
             "field": "Optimistic Scenario",
             "type": "quantitative",
             "format": ".3"
-          },
-          {
-            "field": "1.5 Degree Compatible",
-            "type": "quantitative",
-            "format": ".3"
           }
-        ]
+        ],
+        "opacity": {
+          "condition": {"value": 0.3, "param": "hover", "empty": false},
+          "value": 0
+        }
       },
       "params": [
         {

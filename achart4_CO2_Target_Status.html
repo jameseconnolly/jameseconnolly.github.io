@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.2.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
+</head>
+<body>
+  <div id="vis"/>
+  <script>
+    const spec = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Carbon Emissions and Net-zero Target Status, with the average year of both target year and GHG calculated for each target policy. I included countries with no net-zero target, and assigned the year 3000 to them, so they can be included in the chart.",
+  "data": {
+    "url": "https://raw.githubusercontent.com/jameseconnolly/jameseconnolly.github.io/main/Target_Status.csv"
+  },
+  "height": 400,
+  "width": 370,
+  "title": {
+    "text": "Carbon Emissions and Net-zero Target Status",
+    "subtitle": "Million metric tonnes of CO₂ emissions. Source: EIA. Net-zero target status. Source: Net-zero Tracker",
+    "subtitleFontStyle": "italic",
+    "subtitleFontSize": 10,
+    "anchor": "start",
+    "color": "rgba(58, 59, 60)"
+  },
+  "params": [
+    {"name": "highlight", "select": {"type": "point", "on": "mouseover"}}
+  ],
+  "transform": [
+    {
+      "calculate": "datum['Net-zero Target'] != 3000 ? datum['Net-zero Target'] : null",
+      "as": "filteredNetZeroTarget"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {"type": "bar", "stroke": "#FFA500"},
+      "encoding": {
+        "color": {
+          "condition": {
+            "test": "datum['Net-zero Target'] == 3000",
+            "value": "#E13F2A"
+          },
+          "field": "Net-zero Target",
+          "type": "quantitative",
+          "title": "Net-zero Target",
+          "legend": {
+            "orient": "top-left",
+            "type": "gradient",
+            "direction": "horizontal"
+          },
+          "scale": {"domainMid": 2000, "domain": [2000, 2070]}
+        }
+      }
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "Target Status",
+      "type": "ordinal",
+      "sort": ["None", "Proposed", "Pledge", "In Policy", "In law", "Achieved"],
+      "title": false,
+      "axis": {"labelAngle": 360}
+    },
+    "y": {
+      "field": "GHG",
+      "type": "quantitative",
+      "title": "Greenhouse Gas Emissions (MT CO2e)"
+    },
+    "strokeWidth": {
+      "condition": [{"param": "highlight", "empty": false, "value": 1}],
+      "value": 0
+    },
+    "tooltip": [
+      {
+        "field": "GHG",
+        "type": "quantitative",
+        "title": "Greenhouse Gases",
+        "format": ".3"
+      },
+      {
+        "field": "filteredNetZeroTarget",
+        "type": "nominal",
+        "title": "Net-zero Target",
+        "format": ".6"
+      }
+    ]
+  },
+  "config": {}
+};
+    vegaEmbed("#vis", spec, {mode: "vega-lite"}).then(console.log).catch(console.warn);
+  </script>
+</body>
+</html>
