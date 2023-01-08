@@ -36,7 +36,7 @@
     "color": {
       "field": "Index",
       "legend": {
-        "labelExpr": "{'CPI': 'Consumer Price Index', 'AWE': 'Average Weekly Earnings'}[datum.label]",
+        "labelExpr": "{'CPI': 'Consumer Price Index %', 'AWE': 'Average Weekly Earnings £'}[datum.label]",
         "orient": "top-left"
       },
       "title": null,

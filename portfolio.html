@@ -137,21 +137,33 @@
                 <div class="myWeek9">
                     <h4>'</h4>
                     <div class="text">
-                        <p></p>
+                        <p>Produce two charts that use advanced analytics. My bubble chart tracks CCS requirements and emissions, with population captured by size. My regression captures environment expenditure against emissions.</p>
                     </div>
-                    <iframe style="border:0" class="chart" src="achart3_GHG_CountryCCS.html" width="605" height="570" ></iframe>
+                    <iframe style="border:0" class="chart" src="chart21_net_zero_bubble.html" width="550" height="530" ></iframe>
+                    <iframe style="border:0" class="chart" src="chart22_GHG_against_Spending.html" width="565" height="530" ></iframe>
                     <h4>'</h4>
                 </div> 
 
-                <h2>Week 10-11</h2>
+                <h2>Week 10</h2>
                 <div class="myWeek10">
                     <h4>'</h4>
                     <div class="text">
-
-                        <p></p>
+                        <p>I used <a href="https://colab.research.google.com/drive/1HFMX90G8ve1g5ZfiRuM0IQInHwzVkM_f?usp=share_link">PCA</a> to analyse whether the GHG emissions and carbon capture requirement of a country can identify the Net-zero Target year. Countries with 2000/2030 targets and 2045/2050 are clustered closely together, suggesting closely timed targets are correlated as expected. 2060 targets are less correlated.</p>
                     </div>
+                    <iframe style="border:0" class="chart" src="achart7_PCA.html" width="585" height="455" ></iframe>
                     <h4>'</h4>
                 </div>         
+
+                <h2>Week 11</h2>
+                <div class="myWeek11">
+                    <h4>'</h4>
+                    <div class="text">
+
+                        <p>I used Supervised Learning to create a <a href="https://colab.research.google.com/drive/1cefgCSurJ2zF4RF3bmcZKjkE3p6UVuca?usp=share_link">regresion</a> of car prices on car power in auctions within the US. Upwards trend is found as expected, however variance of power is high for cars under $10,000.</p>
+                    </div>
+                    <iframe style="border:0" class="chart" src="chart23_carpowerandprice.html" width="470" height="400" ></iframe>
+                    <h4>'</h4>
+                </div>  
             </div>
         </div>
     
@@ -198,8 +210,6 @@
         var myChart18 = "chart18_ukRegionalEmissionsMap.geo.json";
         var myChart19 = "chart19_ukCPIandAWE.json";
         var myChart20 = "chart20_VACandU.json";
-        var myChart21 = "chart22";
-        var myChart22 = "";
     
         // Embed charts:
         vegaEmbed('#Chart1', myChart1);
@@ -222,7 +232,5 @@
         vegaEmbed('#Chart18', myChart18);
         vegaEmbed('#Chart19', myChart19);
         vegaEmbed('#Chart20', myChart20);
-        vegaEmbed('#Chart21', myChart21);
-        vegaEmbed('#Chart22', myChart22);
     </script>
 </html>

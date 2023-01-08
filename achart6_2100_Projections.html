@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.2.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
+</head>
+<body>
+  <div id="vis"/>
+  <script>
+    const spec = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.17.json",
+  "description": "2100 Global GHG Emissions per Year Projections for different net-zero and climate targets",
+  "title": {
+    "text": "2100 Global GHG Emissions per Year Projections",
+    "subtitle": "GtCOze / year in various Net-zero scenarios. Source: Climate Action Tracker.",
+    "subtitleFontStyle": "italic",
+    "subtitleFontSize": 10,
+    "anchor": "start",
+    "color": "rgba(58, 59, 60)"
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/jameseconnolly/jameseconnolly.github.io/main/Net_Zero_Scenarios.csv"
+  },
+  "width": 362,
+  "height": 350,
+  "encoding": {"x": {"field": "Year", "type": "temporal", "title": "null"}},
+  "layer": [
+    {
+      "encoding": {
+        "color": {
+          "field": "Scenario",
+          "type": "nominal",
+          "title": "Scenario",
+          "scale": {
+            "range": [
+              "rgb(150,150,150)",
+              "#D1193E",
+              "#F86E51",
+              "#FBA465",
+              "#F2C85B",
+              "#A6D3A0"
+            ],
+            "domain": [
+              "Historical",
+              "Current Policies",
+              "2030 Targets",
+              "All Targets",
+              "Optimistic Scenario",
+              "1.5 Degree Compatible"
+            ]
+          }
+        },
+        "x": {"field": "Year", "type": "temporal", "title": null},
+        "y": {
+          "field": "Global GHG emissions/year",
+          "type": "quantitative",
+          "title": "Global GHG emissions/year"
+        }
+      },
+      "layer": [
+        {"mark": "line"},
+        {
+          "transform": [{"filter": {"param": "hover", "empty": false}}],
+          "mark": "point"
+        }
+      ]
+    },
+    {
+      "transform": [
+        {
+          "pivot": "Scenario",
+          "value": "Global GHG emissions/year",
+          "groupby": ["Year"]
+        }
+      ],
+      "mark": "rule",
+      "encoding": {
+        "tooltip": [
+          {"field": "Historical", "type": "quantitative", "format": ".3"},
+          {"field": "Current Policies", "type": "quantitative", "format": ".3"},
+          {"field": "2030 Targets", "type": "quantitative", "format": ".3"},
+          {"field": "All Targets", "type": "quantitative", "format": ".3"},
+          {
+            "field": "Optimistic Scenario",
+            "type": "quantitative",
+            "format": ".3"
+          }
+        ],
+        "opacity": {
+          "condition": {"value": 0.3, "param": "hover", "empty": false},
+          "value": 0
+        }
+      },
+      "params": [
+        {
+          "name": "hover",
+          "select": {
+            "type": "point",
+            "fields": ["Year"],
+            "nearest": true,
+            "on": "mouseover",
+            "clear": "mouseout"
+          }
+        }
+      ]
+    }
+  ],
+  "config": {}
+};
+    vegaEmbed("#vis", spec, {mode: "vega-lite"}).then(console.log).catch(console.warn);
+  </script>
+</body>
+</html>

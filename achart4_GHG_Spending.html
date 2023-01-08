@@ -17,8 +17,8 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "description": "Regression of the log of Greenhouse Gas Emissions against Carbon Capture and Storage Requirement in countries, adjusting for population and filtering by net-zero target year.",
   "title": {
-    "text": "Greenhouse Gas Emissions Against CCS Requirement",
-    "subtitle": "Greenhouse Gas Emissions. Source: Net-Zero Tracker. CCS Readiness. Source: Global CCS Institute ",
+    "text": "Greenhouse Gas Emissions Against Environmental Protection Spending",
+    "subtitle": "Greenhouse Gas Emissions. Source: Net-Zero Tracker. Environmental Expenditures. Source: IMF",
     "subtitleFontStyle": "italic",
     "subtitleFontSize": 10,
     "anchor": "start",
@@ -28,7 +28,7 @@
   "width": 515,
   "background": null,
   "data": {
-    "url": "https://raw.githubusercontent.com/jameseconnolly/jameseconnolly.github.io/main/Carbon_Capture_Requirement.csv",
+    "url": "https://raw.githubusercontent.com/jameseconnolly/jameseconnolly.github.io/main/Protection_GHG.csv",
     "format": {"type": "csv"}
   },
   "layer": [
@@ -90,12 +90,12 @@
           "condition": {"value": 1, "selection": "picked"}
         },
         "x": {
-          "field": "Carbon Capture Requirement",
+          "field": "Environmental Protection Expenditures (% of GDP)",
           "scale": {"zero": false},
           "type": "quantitative",
           "title": null,
           "axis": {
-            "title": "Carbon Capture and Storage Requirement",
+            "title": "Environmental Protection Expenditures (% of GDP)",
             "ticks": false
           }
         },
@@ -111,7 +111,9 @@
       }
     },
     {
-      "data": {"values": [{"y": "17.22", "x": "0"}, {"y": "22.62", "x": "90"}]},
+      "data": {
+        "values": [{"y": "18.85", "x": "0"}, {"y": "18.076", "x": "1.8"}]
+      },
       "mark": {"type": "line", "color": "#8080FF"},
       "encoding": {
         "x": {"field": "x", "type": "quantitative"},
@@ -125,7 +127,7 @@
         "size": 16,
         "x": 480,
         "align": "center",
-        "y": 80
+        "y": 60
       },
       "transform": [
         {

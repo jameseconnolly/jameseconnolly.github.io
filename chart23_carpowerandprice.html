@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.2.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
+</head>
+<body>
+  <div id="vis"/>
+  <script>
+    const spec = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "car price and power regression using supervised ml",
+  "data": {
+    "url": "https://raw.githubusercontent.com/jameseconnolly/jameseconnolly.github.io/main/autoscsv.csv"
+  },
+  "title": {
+    "text": "Regression on Car Price and Power",
+    "subtitle": "Car price and power of cars in auctions. Source: Data-society",
+    "subtitleFontStyle": "italic",
+    "subtitleFontSize": 10,
+    "anchor": "start",
+    "color": "rgba(58, 59, 60)"
+  },
+  "height": 300,
+  "width": 370,
+  "layer": [
+    {
+      "mark": {"type": "point", "size": 10, "color": "#b9d5e0"},
+      "encoding": {
+        "x": {
+          "field": "price",
+          "type": "quantitative",
+          "title": "Car Price ($)"
+        },
+        "y": {
+          "field": "powerPS",
+          "type": "quantitative",
+          "title": "Car Power (PS)"
+        }
+      }
+    },
+    {
+      "mark": {"type": "line", "color": "#e91414", "size": 2},
+      "transform": [{"regression": "powerPS", "on": "price"}],
+      "encoding": {
+        "x": {"field": "price", "type": "quantitative"},
+        "y": {"field": "powerPS", "type": "quantitative"}
+      }
+    }
+  ],
+  "config": {}
+};
+    vegaEmbed("#vis", spec, {mode: "vega-lite"}).then(console.log).catch(console.warn);
+  </script>
+</body>
+</html>

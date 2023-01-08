@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.2.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
+</head>
+<body>
+  <div id="vis"/>
+  <script>
+    const spec = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Principal Component Analysis on Net-zero Targets",
+    "subtitle": "Component 1 (x), Component 2 (y). Source: Net-zero Tracker, CCS",
+    "subtitleFontStyle": "italic",
+    "subtitleFontSize": 10,
+    "anchor": "start",
+    "color": "rgba(58, 59, 60)"
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/jameseconnolly/jameseconnolly.github.io/main/PCA.csv",
+    "format": {"type": "csv"}
+  },
+  "mark": {"type": "circle", "opacity": 0.6, "size": 110},
+  "height": 330,
+  "width": 350,
+  "encoding": {
+    "color": {
+      "field": "Net-zero Target",
+      "type": "ordinal",
+      "scale": {"scheme": "tableau20"},
+      "legend": {"orient": "right"},
+      "title": "Net-zero Target"
+    },
+    "x": {
+      "field": "Component 1",
+      "type": "quantitative",
+      "axis": {"grid": false},
+      "title": null
+    },
+    "y": {
+      "field": "Component 2",
+      "type": "quantitative",
+      "axis": {"grid": false},
+      "title": null
+    },
+    "tooltip": [
+      {"field": "Country Name", "type": "nominal", "title": "Country"},
+      {"field": "GHG", "type": "quantitative", "title": "GHG"},
+      {
+        "field": "Carbon Capture Requirement",
+        "type": "nominal",
+        "title": "Carbon Capture Requirement"
+      }
+    ]
+  },
+  "config": {}
+};
+    vegaEmbed("#vis", spec, {mode: "vega-lite"}).then(console.log).catch(console.warn);
+  </script>
+</body>
+</html>
