@@ -1,0 +1,150 @@
+/*All sections*/
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/*Navigation bar*/
+.nav-area{
+    float:right;
+    list-style:none;
+    margin-top:34px;
+    padding-right: 50px;
+}
+
+.nav-area li{
+    display: inline;
+}
+
+.nav-area li a{
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    font-size: 15px;
+    border-radius: 15px;
+    width: 10px;
+}
+
+.nav-area li a:hover ,
+.nav-area li a.active
+{
+    background: #fff;
+    color: #333;
+    transition: 0.9s;
+}
+
+.hamburger{
+    position: absolute;
+    top:2.3rem;
+    left: 2.7rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 33px;
+    height: 23px;
+}
+
+.hamburger .bar{
+    height: 3px;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+
+/*Mobile Navigation bar*/
+@media screen and (max-width: 750px){
+
+    .nav-area{
+        position: absolute;
+        background: rgba(0,0,0,0.2);
+        right:0px;
+        margin-top: 0px;
+        width: 90px;
+        height: 1300px;
+        padding-top: 40px;
+        padding-left: 30px;
+        text-align: right;
+        display: none;
+    }
+
+    .nav-area li a{
+        display: block; 
+    }
+
+    .nav-area.active{
+        display: block;
+    }
+
+    .nav-area li a:hover ,
+    .nav-area li a.active
+    {
+        background: none;
+        color: #fff;
+        transition: 0s;
+    }
+
+    .hamburger{
+        display: flex;
+    }
+}
+
+
+/*Background image and text*/
+body {
+    color: white;
+    margin: 0;
+    padding: 0;
+    perspective: 1px;
+    height: 100%;
+    width: 100%;
+}
+
+header {
+    box-sizing: border-box;
+    min-height: 100vh;
+    position: relative;
+    transform-style: inherit;
+    width: 100vw;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    font-size: calc(42px + 0.390625vw);
+}
+
+header h2 {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 60%);
+    font-size: calc(10px + 0.390625vw);
+}
+
+header {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.1)), url(backgroundinLondon.jpg);
+    background-size: cover;
+    transform-origin: center center 0;
+    transform: translateZ(-1px) scale(2);
+    z-index: -1;
+    min-height: 50vh;
+}
+
